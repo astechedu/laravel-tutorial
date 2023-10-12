@@ -33,7 +33,7 @@
     	<x-slot:heading>
     		Passing Data To Components 01
     	</x-slot:heading>
-    </x-passdata10>
+    </x-passdata01>
 
 
     <!-- Passing Data To Components 02-->
@@ -48,4 +48,6 @@
     		<p>This is passing data to component.</p>
     </x-passdata02>
  
+ 
+
 </x-layout>

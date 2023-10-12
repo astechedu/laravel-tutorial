@@ -5,6 +5,6 @@
 	<div>This is about us view.</div>
 
 	<x-form.input type="text" name="" value="" placeholder="Enter First name"  />
-
-
+  
+    
 </x-layout>
