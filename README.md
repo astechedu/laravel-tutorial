@@ -1,5 +1,5 @@
 # Laravel 10 Components Examples For Beginners
-## How to create components 
-## How to create line component
-## How to pass data to component 
+## How to create components? 
+## How to create inline component?
+## How to pass data to component? 
 
