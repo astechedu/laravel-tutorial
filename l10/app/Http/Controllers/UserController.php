@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index(){
-
+    
        $users = [
 
          ['id' => 01, 'name' => 'ajay'],
@@ -18,6 +18,6 @@ class UserController extends Controller
        ];
 
 	   return view('passdata', ['users' => $users]);
-
+   
     }
 }

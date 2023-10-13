@@ -8,7 +8,7 @@
 
 
 
-	<x-form.button class='form-control w-25 my-2 bg-success'>
+	<x-form.button type="text" class='form-control w-25 my-2 bg-success'>
 		Submit
 	</x-form.button>
 

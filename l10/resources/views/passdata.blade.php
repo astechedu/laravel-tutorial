@@ -9,4 +9,16 @@
     <x-passdata :users="$users">
     </x-passdata>
 
+
+
+
+
+
+    <x-form.button02>
+        Button01
+    </x-form.button02>
+
+
+
 </x-layout>
+
