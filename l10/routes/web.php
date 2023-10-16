@@ -14,8 +14,8 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('index');
-})->name('welcome');
+    return view('welcome');
+});
 
 
 
