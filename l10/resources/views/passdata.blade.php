@@ -20,5 +20,10 @@
 
 
 
+
+    <x-product>
+    </x-product>
+
+
 </x-layout>
 
