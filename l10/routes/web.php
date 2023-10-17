@@ -25,8 +25,10 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/methodincomp', function () {
+    return view('methodincomp');
+})->name('methodincomp');
 
 Route::get('/passdata', [UserController::class, 'index'])->name('passdata');
-
 
 

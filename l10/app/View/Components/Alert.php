@@ -23,8 +23,7 @@ class Alert extends Component
     {
         return <<<'blade'
             <div>
-                <h1>Inline Component</h1>
-
+                <h1>Inline Component</h1>            
                 {{ $slot }}
                 
             </div>
