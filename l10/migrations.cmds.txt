@@ -1,0 +1,18 @@
+  Database Migration: 
+
+
+  1. Running Migrations: 
+     php artisan migrate
+
+  2. Generating Migrations:
+     php artisan make:migration create_products_table
+
+
+  3. php artisan migrate:status
+  4. php artisan migrate --pretend
+  5. php artisan migrate:fresh
+  6. php artisan migrate:refresh	
+  7. php artisan migrate:reset
+
+  8. php artisan migrate: rollback
+  9. php artisan migrate: rollback --setp=2
