@@ -1,0 +1,200 @@
+
+Controllers: 
+-----------
+
+
+1. Simple Controller
+2. Single Action Controller
+3. Resource Controller
+
+
+
+1. Simple Controller
+
+  //Generation Controller
+  
+  php artisan make:controller StudentController
+  
+  Rtoue::get('student', [StudentController::class, 'index']);
+  
+
+
+2. Single Action Controller
+
+  //Generation Controller
+  
+  php artisan make:controller ProvisionServer
+
+  Rtoue::get('server', ProvisionController::class);
+
+
+3. Resource Controller
+
+  //Generation Controller
+  
+  php artisan make:controller PhotoController
+  
+  Rtoue::resource('photos', PhotoController::class);
+
+
+
+
+//Routes: web.php file
+
+  use App\Http\Controllers\StudentController
+  use App\Http\Controllers\ProvisionServer
+  use App\Http\Controllers\PhotoController
+  
+  
+ //Simple Controller: Student
+ 
+  Rtoue::get('student', [StudentController::class, 'index'])->name('student.index');
+  Rtoue::get('create', [StudentController::class, 'create'])->name('student.create');
+  Rtoue::get('show', [StudentController::class, 'show'])->name('student.show');
+  Rtoue::get('edit', [StudentController::class, 'edit'])->name('student.edit');
+
+
+//Single Action Controller
+
+  Rtoue::get('server', ProvisionController::class)->name('server');
+
+
+//Resource Controller
+
+  Rtoue::resource('photos', PhotoController::class)->name('photo');
+
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Database:
+
+    1. Eloquent ORM ( Object Relational Mapper )
+       ( Mapping table with model class )
+
+
+
+
+    2. Query Builder
+       ( Illuminate\Support\Facade\DB )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Database Migration: 
+
+
+  1. Running Migrations: 
+     php artisan migrate
+
+  2. Generating Migrations:
+     php artisan make:migration create_products_table
+
+
+  3. php artisan migrate: status
+  4. php artisan migrate --pretend
+  5. php artisan migrate: fresh
+  6. php artisan migrate: refresh	
+  7. php artisan migrate: reset
+
+  8. php artisan migrate: rollback
+  9. php artisan migrate: rollback --setp=2
+
+
+
+
+
+//Add Column : 
+------------
+
+php artisan make:migration add_column_name_to_products
+
+Up:
+      $table->string('name');
+
+Down:
+      $table->DropColumn('name');
+
+
+
+//Rename Column :
+---------------
+
+php artisan make:migration rename_name_in_products_table  //Or --table=products
+  
+Up:
+      $table->rename('name','fname');
+Down:
+      $table->renameColumn('fname','name');
+
+
+
+//Drop Colunm:
+--------------
+       php artisan make:migration delete_email_in_products_table  //Or --table=products
+
+Up:
+      $table->dropColumn('name');
+Down:
+      $table->string('name');
+
+
+
+
+
+
