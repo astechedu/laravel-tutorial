@@ -4,7 +4,8 @@ Database:
 
       (Model Class mapping with database table)
       
-      Ex: 'User' Model -> 'users' table
+      Ex: 
+          'User' Model -> 'users' table
           'Post' Model -> 'posts' table
       
       
@@ -14,28 +15,34 @@ Database:
       $user->name="ajay";
       $user->save();
      
+
+
 --------------------------------------------------------------
+
+
 
 2. QueryBuider
 
-   Illuminate\Support\Facade\DB
+   use Illuminate\Support\Facade\DB
    
-   Ex:
+      Ex:
    
-      DB::table('users')->insert([
-   
-        'name' => 'ajay', 
-        
-      ]);
+        DB::table('users')->insert([
+       
+            'name' => 'ajay', 
+            
+        ]);
 
-       DB:table('users')->select('name','email')->get();   
-       DB:table('users')->where('id',1)->update(['votes' => 1]);
-       DB:table('users')->delete();
-       DB:table('users')->truncate();
-           
-       DB:table('users')->get();
-       DB:table('users')->where('name','ajay')->first();
-       DB:table('users')->count();
+        DB:table('users')->select('name','email')->get();   
+        DB:table('users')->where('id',1)->update(['votes' => 1]);
+        DB:table('users')->delete();
+        DB:table('users')->truncate();
+               
+        DB:table('users')->get();
+        DB:table('users')->where('name','ajay')->first();
+        DB:table('users')->count();
+
+
 
 -------------------------------------------------------------------
 
@@ -54,11 +61,27 @@ Database:
 
 
 
+Table: 
 
 
+<table border="2">
+   <thead>
+     <tr><th>Id</th><th>Name</th><th>email</th></tr>
+   </thead>
 
+   <tbody>
+    
+    <tr>
+       <td></td>
+       <td></td>
+       <td></td>
+    </tr>
+    
+   </tbody>
 
+</table>
 
+----------------------------------------------------------------------
 
 
 
@@ -133,12 +156,6 @@ use App\Http\Controllers\ProvisionServerController;
 
 
 
-
-
-
-
-
-
   Database Migration: 
 
 
@@ -196,7 +213,7 @@ Up:
 Down:
       $table->string('name');
 
-
+---------------------------------------------------------------------------
 
 
 

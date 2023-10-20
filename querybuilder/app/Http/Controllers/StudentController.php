@@ -4,25 +4,41 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class StudentController extends Controller
 {
-    public function index() {
 
-        echo "<h1>Student Index</h1>";
+    public function index(){
+
+           $stds = DB::table('students')->get();
+           //dd($stds);
+           echo "<pre>";print_r($stds);
     }
 
-    public function create() {
+    
+    public function show(){
 
-        echo "<h1>Student Create</h1>";
+           $stds = DB::table('students')->where('id',17)->first();
+           //dd($stds);
+           echo "<pre>";print_r($stds);
+
     }
 
-    public function show() {
+    public function update(){
 
-        echo "<h1>Student Show</h1>";
+           $stds = DB::table('students')->where('id',17)->update([
+               'name' => 'new ajay id 17',
+           ]);
+           
     }
 
-    public function edit() {
+    public function delete(){
 
-        echo "<h1>Student Edit</h1>";
-    }   
+           $stds = DB::table('students')->where('id',17)->delete();
+           
+    }
+
+
+
 }
