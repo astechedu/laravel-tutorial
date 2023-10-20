@@ -2,22 +2,44 @@
   Database:
 
 
-
-    1. Query Builder
-       ( Illuminate\Support\Facade\DB )
-
-
-    2. Eloquent ORM ( Object Relational Mapper )
+    1. Eloquent ORM ( Object Relational Mapper )
        ( Mapping table with model class )
+      
+      Ex: 
+
+        'User' Model -> 'users' table
+        'Post' Model -> 'posts' table
+      
+      
+	      user App\Models\User;
+	      
+	      $user = new User;
+	      $user->name="ajay";
+	      $user->save();
+     
 
 
+    2. QueryBuider:
+
+       ( Illuminate\Support\Facade\DB )
+   
+	    Ex:
+	   
+	       DB::table('users')->insert([
+	   
+	          'name' => 'ajay', 
+	        
+	       ]);
 
 
-
-
-
-
-
+       DB:table('users')->select('name','email')->get();   
+       DB:table('users')->where('id',1)->update(['votes' => 1]);
+       DB:table('users')->delete();
+       DB:table('users')->truncate();
+           
+       DB:table('users')->get();
+       DB:table('users')->where('name','ajay')->first();
+       DB:table('users')->count();
 
 
 
