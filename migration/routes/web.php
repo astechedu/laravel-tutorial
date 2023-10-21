@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,11 +12,10 @@ use App\Http\Controllers\StudentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/*
+
 Route::get('/', function () {
     return view('welcome');
 });
-*/
 
-Route::get('/', [StudentController::class,'index']);
-Route::get('/save', [StudentController::class,'save']);
+
+
