@@ -9,7 +9,7 @@ php artisan db:seed
 
 php artisan migrate:fresh --seed
 php artisan migrate:fresh --seed --seeder=UserSeeder
-
+php artisan migrate:refresh --seed
 
 In Production:
 php artisan db:seed --force
@@ -17,6 +17,7 @@ php artisan db:seed --force
 
 
 -------------------------------------------------------------------------
+
 
 nakespace Database\Seeders;
 
@@ -41,6 +42,20 @@ class DatabaseSeeder extends Seeder
 
 ---------------------------------------------------------
 
+   for($i=0;$i<10;$i++){
+
+      DB::table('users')->insert([
+
+         'name' => Str::random(10),
+         'email' => Str::random(10).'@gmail.com',
+         'password' => Hash::make('password'),
+      ]);   
+   }
+
+
+---------------------------------------------------------
+
+
 Using Model Factories:
 
 use App\Models\User
@@ -52,6 +67,7 @@ public function run(): void
               ->hasposts(1)
               ->create();
 }
+
 
 ----------------------------------------------------------------
 
@@ -70,13 +86,48 @@ public function run(): void
       ]);
 }
 
+
 ------------------------------------------------------------------
 
 
+use App\Models\Post
+
+public function run(): void{
+      
+      User::create([
+          'title' => 'title 1',
+          'description' => 'description title1',
+          'body' => 'body for post 1',
+
+      ]);
+
+      User::create([
+          'title' => 'title 2',
+          'description' => 'description title2',
+          'body' => 'body for post 1',
+
+      ]);
+}
+
+---------------------------------------------------------------------
 
 
+use App\Models\Post
 
+public function run(): void{
+ 
+    for($i=0;$i<10;$i++){
 
+      User::create([
+          'title' => 'title '.$i,
+          'description' => 'description title '$i,
+          'body' => 'body for post '$i,
+
+      ]);    
+    }
+}
+
+---------------------------------------------------------------------
 
 
 
@@ -148,19 +199,8 @@ Down:
 
 
 
-
-
-
 Factories : 
 ----------
-
-
-
-
-
-
-
-
 
 
 
