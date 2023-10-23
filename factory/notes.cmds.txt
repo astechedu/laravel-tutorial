@@ -36,21 +36,47 @@ class UserFactory extends Factory
 
 \App\Models\Product::factory(5)->create();
 
+In Tinker: 
+  App\Models\User::factory()->create()
+  App\Models\User::factory(5)->create()
+  App\Models\User::factory()->count(5)->create()
 
 ------------------------------------------------------------------------
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ */
+class EmployeeFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),  
+            'phone' => fake()->phoneNumber(), 
+            'address' => fake()->address(),  
+            'areacode' => fake()->areacode(),   
+            'password' => hash::make('password'), 
+            'email_verified_at' => now(),
+                             
+            
+        ];
+    }
+}
+--------------------------------------------------------------
 
 
-
-
-
-
-
-
-
-
-
-
--------------------------------------------------------------------------
+--------------------------------------------------------------
 
 
 
@@ -84,6 +110,13 @@ https://github.com/fzaninotto/Faker
  fake()->foreignerIdNumber  // Foreigner ID number
  fake()->companyIdNumber   // Company ID number
 
+
+ fake()->unique()->safeEmail()
+ fake()->unique()->userName()
+ 
+ 'password'=>hash::make("password")
+ 'email_varified_at'=> now()
+ 'remember_token'=> str::random(10)
 
 ----------------------------------------------------------
 
@@ -134,6 +167,17 @@ https://github.com/fzaninotto/Faker
 
 
 
+  Database Seeder: 
+
+  1. php artisan db:seed
+  2. php artisan make:seeder UserTableSeeder
+  3. php artisan db:seed --class=UserTableSeeder
+
+
+
+
+
+
 
 
 //Add Column : 
@@ -170,7 +214,7 @@ Up:
 Down:
       $table->string('name');
 
-
+-------------------------------------------------------------------------------------------
 
 
 

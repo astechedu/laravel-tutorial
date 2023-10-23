@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\Employee;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
@@ -18,11 +18,10 @@ class EmployeeFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),  
-            'phone' => 909090900, 
+            'email' => fake()->unique->safeEmail(),
+            'phone' => fake()->phoneNumber(), 
             'address' => fake()->address(),  
-            'areacode' => fake()->areacode(),                  
-            
+            'areacode' => fake()->areacode(), 
         ];
     }
 }
