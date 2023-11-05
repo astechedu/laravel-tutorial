@@ -6,12 +6,14 @@ Generato propeties (Like name,address,etc) are called formatters
 $faker->name, address, text, state, city, country,postcode, randomDigit, numberBetween($min = 1000, $max =9000), phoneNumber, tollFreePhoneNumber, e164PhoneNumber, compony, date, time, month, year, timezone, dateTime, image, imageUrl, mimeType, uuid, en13 (BarCode), en8(BarCode), latitude, longitude,
 randomLetter,shuffle('hello','world'),sentence,paragraph,title,firstName,lastName,
 
-
+Example:   
+         'phone' => fake()->numberBetween($min = 1877663310, $max =1908347381),  
+         'color' => fake()->colorName, 
 -------------------------------------------------------------------------
 
 Topics: 
 
-1. Seeding data Using ForeignId   //Insert Data useing seeders
+1. Seeding data Using ForeignId       //Insert Data useing seeders
 
 
 2. Relationship: 
@@ -91,9 +93,20 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('phone');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            //Or  $table->integer('user_id')->unsigned();
+            
             //Or $table->foreignId('user_id')->constrained()->onDelete('cascade');
            
+
+      //1. 
+        //$table->unsignedBigInteger('user_id');            
+        //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+      //2.Or
+         //$table->foreignId('user_id')->constrained()->onDelete('cascade');
+           
+
+
+
             $table->timestamps();
         });
     }
@@ -407,7 +420,7 @@ Factories: PostFactory, UserFactory      //Or more factories
     return [
        'title' => $this->faker->paragraph(1),
        'description' => $this->faler->paragraph(6),
-       'user_id' => \App\Models\User:;all()->random()->id,
+       'user_id' => \App\Models\User::all()->random()->id,
     ];
   }
 
@@ -496,4 +509,34 @@ Posts:
 
 ------------------------------------------------------------------------------------------------
       
-      
+
+
+Faker: 
+
+
+$faker = Faker\Factory::create();
+
+$array = [
+ 'name' => $faker->name,
+ 'title' => $faker->title,
+ 'state' => $faker->state,
+ 'counter' => $faker->country,
+ 'phone_no' => $faker->phoneNumber,
+ 'random_digit' => $faker->randomDigit,
+ 'postcode' => $faker->postcode,
+ 'date' => $faker->date,
+ 'time' => $faker->time,
+ 'text' => $faker->text,
+ 'imageUrl' => $faker->imageUrl,
+ 'phonenumber' => $faker->e164PhoneNumber,
+ 'mimetype' => $faker->mimeType,
+ 'tollfreeno' => $faker->tollFreePhoneNumber,
+ 'colorname' => $faker->colorName,
+ 'paragraph' => $faker->paragraph(1),
+ 'suffle' => $faker->shuffle('relationshipinlaravel','world'),
+];
+
+
+echo "<pre>";print_r($array);
+
+-----------------------------------------------------------------------
