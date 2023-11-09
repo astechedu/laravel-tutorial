@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Contact;
 use App\Models\Post;
+//use App\Models\Category;
 
 class TestController extends Controller
 {
@@ -47,5 +48,17 @@ class TestController extends Controller
     }
 
 
+    //Many Two Many Relationship
+
+    public function many2many()
+    {
+       
+      //$categories = Category::all();
+      //$post = Post::with('categories')->first();
+      //$post->categories()->attach($categories);  //attach(), detach(), sync([1,2])
+
+      //dd($post->toArray());
+      
+    }
 
 }

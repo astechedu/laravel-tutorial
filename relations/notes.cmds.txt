@@ -494,10 +494,48 @@ use App\Models\Post;
 //--> Many To Many <--//
 
 
-Tables: posts,categories,category_post          //A Post belongs to many categories           
-Models: User, Post                              //A Category belongs to many posts         
-Factories: PostFactory, UserFactory                        
+Tables: posts,categories,category_post    //Note: A Post belongs to many categories           
+Models: Post, Category
+                                          //Note: A Category belongs to many posts         
+Factories: PostFactory,CategoryFactory   
 
+Migration: create_category_post_table
+
+create_category_post_table: 
+
+public function up(){
+    Schema::create('category_post', function(Blueprint $table){
+       $table->id(),
+       $table->foreignId('category_id')->constrained()->onDelete('cascade');
+       $table->foreignId('post_id')->constrained()->onDelete('cascade');  
+       $table->timestamp();  
+    })
+}
+
+Post: 
+
+public function categories(){
+    return $this->blongsToMany(Category::class);
+}
+
+
+Category:
+
+protected $fillable = ['name'];
+
+public function categories(){
+    return $this->blongsToMany(Category::class);
+}
+
+
+//Display posts: 
+
+
+$categories = Category::all();
+$post = Post::with('categories')->first();
+$post->categories()->attach($categories);       //attach(), detach(), sync([1,2])
+
+dd($post->toArray());
 
 ----------------------------------------------------------------------------------------------
 
