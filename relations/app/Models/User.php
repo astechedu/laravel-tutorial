@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\Contact;
+use App\Models\Post;
 
 class User extends Authenticatable
 {
@@ -48,6 +49,11 @@ class User extends Authenticatable
 
     public function contact(){
         return $this->hasOne(Contact::class);
+    }
+
+
+    public function posts(){
+        return $this->hasMany(Post::class);
     }
 
 

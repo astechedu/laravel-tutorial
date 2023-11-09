@@ -388,6 +388,7 @@ $posts = DB::table('posts')
 ======>   Relationship <==============
 
 //--> One To One <--//
+
 Tables: users, contacts
 Models: User, Contact
 Factories: User, Contact
@@ -447,7 +448,7 @@ Factories: PostFactory, UserFactory      //Or more factories
   public function definition(){
     return [
        'title' => $this->faker->paragraph(1),
-       'description' => $this->faler->paragraph(6),
+       'description' => $this->faler->paragraph(4),
        'user_id' => \App\Models\User::all()->random()->id,
     ];
   }

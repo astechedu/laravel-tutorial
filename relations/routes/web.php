@@ -18,5 +18,9 @@ Route::get('/', function(){
 });
 
 
+//One to one
 Route::get('/test/user', [TestController::class, 'user']);
 Route::get('/test/contact', [TestController::class, 'contact']);
+
+//One to many
+Route::get('/test/one2many', [TestController::class, 'one2many']);
