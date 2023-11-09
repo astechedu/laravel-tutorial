@@ -497,7 +497,7 @@ use App\Models\Post;
 Tables: posts,categories,category_post    //Note: A Post belongs to many categories           
 Models: Post, Category
                                           //Note: A Category belongs to many posts         
-Factories: PostFactory,CategoryFactory   
+Factories: PostFactory,CategoryFactory    //fake()->sentence
 
 Migration: create_category_post_table
 
@@ -523,8 +523,8 @@ Category:
 
 protected $fillable = ['name'];
 
-public function categories(){
-    return $this->blongsToMany(Category::class);
+public function posts(){
+    return $this->blongsToMany(Post::class);
 }
 
 

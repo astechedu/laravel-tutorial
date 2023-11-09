@@ -24,3 +24,8 @@ Route::get('/test/contact', [TestController::class, 'contact']);
 
 //One to many
 Route::get('/test/one2many', [TestController::class, 'one2many']);
+
+//Many to many
+Route::get('/test/many2many', [TestController::class, 'many2many']);
+
+

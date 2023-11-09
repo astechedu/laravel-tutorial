@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Contact;
 use App\Models\Post;
-//use App\Models\Category;
+use App\Models\Category;
 
 class TestController extends Controller
 {
@@ -39,7 +39,6 @@ class TestController extends Controller
        //dd($user->toArray());
 
 
-
        //Fetch Post with user
 
        $post = Post::with('user')->get();
@@ -53,11 +52,28 @@ class TestController extends Controller
     public function many2many()
     {
        
-      //$categories = Category::all();
-      //$post = Post::with('categories')->first();
-      //$post->categories()->attach($categories);  //attach(), detach(), sync([1,2])
+      $categories = Category::all();
 
-      //dd($post->toArray());
+      $post = Post::with('categories')->first();
+
+      //$post->categories()->attach($categories);  //attach(), detach(), sync([1,2])
+      //OR
+      //$post->categories()->detach($categories);
+      //OR
+      //$post->categories()->sync([1,2]);
+      //OR
+      //$post->categories()->sync([1,2]);
+      //OR
+      //$post->categories()->attach([1,2]); 
+      $post->categories()->detach([1,2]);
+
+      $post = Post::with('categories')->first();
+
+      //$post->categories()->detatch($categories);
+
+      //$post->categories()->sync([1,2,3]);
+
+      dd($post->toArray());
       
     }
 
