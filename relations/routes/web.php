@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function(){
     return view('index');
 });
+
+
+Route::get('/test/user', [TestController::class, 'user']);
+Route::get('/test/contact', [TestController::class, 'contact']);

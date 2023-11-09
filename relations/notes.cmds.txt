@@ -388,7 +388,35 @@ $posts = DB::table('posts')
 ======>   Relationship <==============
 
 //--> One To One <--//
+Tables: users, contacts
+Models: User, Contact
+Factories: User, Contact
 
+
+.One User has one contact 
+.One Contact belongs to one user
+
+*User: 
+  public function contact(){
+    return $this->hasOne(Contact::class);
+  }
+
+*Contact:   
+  protected $fillable = ['phone', user_id'];
+
+  public function user(){
+     return $this->belongsTo(User::class);
+  }
+
+*ContactFactory: 
+
+  public function definition(){
+    return [
+       'phone' => $this->faker->phoneNumber,
+       'description' => $this->faler->paragraph(6),
+       'user_id' => \App\Models\User::all()->random()->id,
+    ];
+  }
 
 
 
