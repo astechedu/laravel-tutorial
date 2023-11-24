@@ -497,11 +497,11 @@ use App\Models\Post;
 
 
 Tables: posts,              //Note: A Post belongs to many categories  
-        categories,
+        categories,         //Note: A Category belongs to many posts  
         category_post  (Third Table)
 
 Models: Post, Category
-                             //Note: A Category belongs to many posts         
+                                    
 Factories: 
           PostFactory,       //fake()->sentence
           CategoryFactory

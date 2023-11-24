@@ -54,7 +54,24 @@ class TestController extends Controller
        
       $categories = Category::all();
 
-      $post = Post::with('categories')->first();
+      $post = Post::with('categories')->first(); 
+      
+      $post->categories()->attach($categories);
+
+      $post->categories()->attach([1]);
+
+      dd($post->toArray());
+
+
+
+
+
+
+
+
+
+
+
 
       //$post->categories()->attach($categories);  //attach(), detach(), sync([1,2])
       //OR
@@ -65,15 +82,17 @@ class TestController extends Controller
       //$post->categories()->sync([1,2]);
       //OR
       //$post->categories()->attach([1,2]); 
-      $post->categories()->detach([1,2]);
 
-      $post = Post::with('categories')->first();
+      //$post->categories()->detach([1,2]);
+
+      //$post = Post::with('categories')->first();
 
       //$post->categories()->detatch($categories);
 
       //$post->categories()->sync([1,2,3]);
 
-      dd($post->toArray());
+      //dd($post->toArray());
+      //12:15
       
     }
 
