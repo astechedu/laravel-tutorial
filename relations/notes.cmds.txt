@@ -489,19 +489,28 @@ use App\Models\Post;
 
 //More If more table are available
 
+................... X .......................................................
 
 
-//--> Many To Many <--//
+//----> Many To Many <----//
 
 
-Tables: posts,categories,category_post    //Note: A Post belongs to many categories           
+
+Tables: posts,              //Note: A Post belongs to many categories  
+        categories,
+        category_post  (Third Table)
+
 Models: Post, Category
-                                          //Note: A Category belongs to many posts         
-Factories: PostFactory,CategoryFactory    //fake()->sentence
+                             //Note: A Category belongs to many posts         
+Factories: 
+          PostFactory,       //fake()->sentence
+          CategoryFactory
+           
+Migration: 
+          create_posts_table, 
+          create_categories_table,
+          create_category_post_table
 
-Migration: create_category_post_table
-
-create_category_post_table: 
 
 public function up(){
     Schema::create('category_post', function(Blueprint $table){
@@ -512,14 +521,15 @@ public function up(){
     })
 }
 
-Post: 
+
+//In Post Model: 
 
 public function categories(){
     return $this->blongsToMany(Category::class);
 }
 
 
-Category:
+//In Category Model:
 
 protected $fillable = ['name'];
 
@@ -532,14 +542,21 @@ public function posts(){
 
 
 $categories = Category::all();
+$post = Post::get()->first();
+dd($post->toArray());
+
 $post = Post::with('categories')->first();
-$post->categories()->attach($categories);       //attach(), detach(), sync([1,2])
+$post->categories()->attach($categories);   //attach(), detach(), sync([1,2])
 
 dd($post->toArray());
 
-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
 
------------------------------------------------------------------------------------------------
+--------------------------------- X -----------------------------------------------------
+
+
+
+
 
 //--> Deep Relationship <---
 
@@ -562,7 +579,7 @@ Posts:
 
 
 
------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
 
 ---> Polymorphic Relationship --->
 
@@ -574,7 +591,7 @@ Posts:
 //--> One To Many  (Polymorphic Relationship) <-----
 //--> Many To Many (Polymorphic Relationship) <-----
 
-------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
       
 
 
