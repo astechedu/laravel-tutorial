@@ -56,11 +56,19 @@ class TestController extends Controller
 
       $post = Post::with('categories')->first(); 
       
-      $post->categories()->attach($categories);
+      $post->categories()->sync([1,4]);      //Attach all cats to a post
 
-      $post->categories()->attach([1]);
+
 
       dd($post->toArray());
+
+
+
+
+
+
+
+
 
 
 
